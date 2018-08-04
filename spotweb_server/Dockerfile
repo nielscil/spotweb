@@ -1,6 +1,6 @@
-FROM ubuntu:15.10
+FROM ubuntu:18.04
 
-MAINTAINER Ivan Suftin <isuftin@gmail.com>
+MAINTAINER Nielscil
 
 EXPOSE 80
 
@@ -17,7 +17,7 @@ RUN git clone https://github.com/spotweb/spotweb.git /var/www/spotweb && \
 	chown -R root:www-data /var/www/spotweb
 
 # http://php.net/manual/en/timezones.php
-ENV timezone ${timezone:-"America/Chicago"}
+ENV timezone ${timezone:-"Europe/Amsterdam"}
 
 COPY 000-default.conf /etc/apache2/sites-enabled/000-default.conf
 
