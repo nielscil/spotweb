@@ -37,7 +37,7 @@ RUN /usr/sbin/a2enmod rewrite
 # Updating hourly cron
 RUN (crontab -l ; echo "0 * * * * /usr/bin/php /var/www/spotweb/retrieve.php | tee /var/log/spotweb-retrieve.log") | crontab -
 
-ENV DOCKERIZE_VERSION ${DOCKERIZE_VERSION:-"0.3.0"}
+ENV DOCKERIZE_VERSION ${DOCKERIZE_VERSION:-"0.6.1"}
 
 RUN wget https://github.com/jwilder/dockerize/releases/download/v${DOCKERIZE_VERSION}/dockerize-linux-amd64-v${DOCKERIZE_VERSION}.tar.gz
 
