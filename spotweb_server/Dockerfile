@@ -7,7 +7,7 @@ EXPOSE 80
 ENV SPOTWEB_VERSION ${SPOTWEB_VERSION:-"1.3.9"}
 
 RUN apt-get update && \
-	apt-get install -y apache2 php5 php5-curl php5-gd php5-gmp php5-mysql git-core cron wget curl && \
+	apt-get install -y apache2 php php-curl php-gd php-gmp php-mysql git-core cron wget curl && \
 	apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y
 
 RUN git clone https://github.com/spotweb/spotweb.git /var/www/spotweb && \
