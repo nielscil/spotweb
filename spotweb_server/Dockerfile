@@ -5,6 +5,7 @@ MAINTAINER Nielscil
 EXPOSE 80
 
 ENV SPOTWEB_VERSION ${SPOTWEB_VERSION:-"1.3.9"}
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \
 	apt-get install -y apache2 php php-curl php-gd php-gmp php-mysql git-core cron wget curl && \
@@ -23,7 +24,7 @@ COPY 000-default.conf /etc/apache2/sites-enabled/000-default.conf
 
 RUN echo "ServerName localhost" >> /etc/apache2/conf-enabled/fqdn.conf
 
-RUN sed -i "s@^;date.timezone = *@date.timezone=${timezone}@g" /etc/php5/*/php.ini
+RUN sed -i "s@^;date.timezone = *@date.timezone=${timezone}@g" /etc/php/*/*/php.ini
 
 # Correcting ownership in spotweb directory
 RUN chown -R www-data:www-data /var/www/spotweb
